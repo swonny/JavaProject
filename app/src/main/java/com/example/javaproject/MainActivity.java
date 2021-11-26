@@ -6,6 +6,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+class Tama {
+    private String name;
+    private int level;
+    private int energy;
+
+    public Tama(String name){
+        this.name = name;
+        this.level = 1;
+        this.energy = 10;
+    }
+
+    public void eat() {
+
+    }
+
+    public void play() {
+
+    }
+
+    public void sleep() {
+
+    }
+}
 
 public class MainActivity extends AppCompatActivity {
 

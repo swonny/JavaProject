@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-Button eatBtn, playBtn, sleepBtn;
-TextView tamaName;
 
 class Tama {
     private String name;
@@ -39,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        eatBtn =
     }
 
     public void eat(View v) {

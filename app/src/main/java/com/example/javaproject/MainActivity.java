@@ -1,14 +1,18 @@
 package com.example.javaproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.*;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 
 class Tama {
-    private String name;
+    final String name;
     private int level;
     private int energy;
 
@@ -37,10 +41,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button startButton = (Button) findViewById(R.id.startBtn); // 화면전환 이벤트
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SubActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
     }
+    Scanner scan = new Scanner(System.in);
 
     public void eat(View v) {
-        Toast.makeText(getApplicationContext(), "점심시간!", Toast.LENGTH_SHORT).show();
+        Toast eatToast = Toast.makeText(getApplicationContext(), "점심시간!", Toast.LENGTH_SHORT);
+        eatToast.show();
+        System.out.println("tesss");
     }
 
     public void play(View v) {
@@ -49,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void sleep(View v) {
         Toast.makeText(getApplicationContext(), "z Z z z Z ..", Toast.LENGTH_SHORT).show();
+    }
+
+    public void gameStart(View v) {
+        Tama my = new Tama("hi");
+        System.out.printf("%s", my.name);
     }
 
 //            // 레이아웃 생성

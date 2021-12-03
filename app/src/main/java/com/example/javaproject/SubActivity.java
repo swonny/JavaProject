@@ -2,6 +2,7 @@ package com.example.javaproject;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,9 @@ public class SubActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_main);
+
+        TextView characterName = (TextView) findViewById(R.id.characterName);
+        //characterName.setText(myCharacter.name);
     }
 
     public void eat(View v) {

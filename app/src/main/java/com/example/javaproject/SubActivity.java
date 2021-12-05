@@ -2,6 +2,7 @@ package com.example.javaproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,14 +33,29 @@ public class SubActivity extends AppCompatActivity {
 
         characterName.setText("이름 : "+ myCharacter.name + "\n레벨 : " + myCharacter.getLevel() + "\n에너지 : "+ myCharacter.getEnergy());
 
-        Button sleepButton = (Button) findViewById(R.id.sleepButton); // 잠자기 버튼
-
+        //카운트다운 타이머 시작
+        TextView sleepTimerView = (TextView) findViewById(R.id.sleepTimer);
+        Button sleepButton = (Button) findViewById(R.id.sleepButton);
         sleepButton.setOnClickListener(new View.OnClickListener() { // 잠자기 버튼 클릭시 타이머 시작
             @Override
             public void onClick(View view) {
+                CountDownTimer countDownTimer = new CountDownTimer(30000,1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        int num = (int) (millisUntilFinished / 1000);
+                        sleepTimerView.setText(Integer.toString(num+1) + "초 뒤에 일어날게요!😴");
+                    }
 
+                    @Override
+                    public void onFinish() {
+                        myCharacter.sleep();
+                        setInfoTextview();
+                        sleepTimerView.setText("상태 : 잠에서 깨어났어요!");
+                    }
+                }.start();
             }
         });
+
     }
 
     public void setInfoTextview() {
@@ -51,19 +67,11 @@ public class SubActivity extends AppCompatActivity {
         eatToast.show();
         myCharacter.eat();
         setInfoTextview();
-
-        System.out.println("tesss");
     }
 
     public void play(View v) {
         Toast.makeText(getApplicationContext(), "뭐하고 놀까?", Toast.LENGTH_SHORT).show();
         myCharacter.play();
-        setInfoTextview();
-    }
-
-    public void sleep(View v) {
-        Toast.makeText(getApplicationContext(), "z Z z z Z ..", Toast.LENGTH_SHORT).show();
-        myCharacter.sleep();
         setInfoTextview();
     }
 

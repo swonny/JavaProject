@@ -68,7 +68,7 @@ class Tama implements Serializable {
     }
 
     public void sleep() {
-
+        energyUp(5);
     }
 }
 

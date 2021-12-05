@@ -3,30 +3,43 @@ package com.example.javaproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class SubActivity extends AppCompatActivity {
 
     Tama myCharacter;
     TextView characterName;
+    Timer mTimer = new Timer();
+    TimerTask mTimerTask;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_main);
 
-        characterName = (TextView) findViewById(R.id.characterName);
-
         Intent intent = getIntent();
 
+        characterName = (TextView) findViewById(R.id.characterName);
         myCharacter = (Tama) intent.getSerializableExtra("myTama"); // 객체 불러오기
 
         characterName.setText("이름 : "+ myCharacter.name + "\n레벨 : " + myCharacter.getLevel() + "\n에너지 : "+ myCharacter.getEnergy());
 
+        Button sleepButton = (Button) findViewById(R.id.sleepButton); // 잠자기 버튼
+
+        sleepButton.setOnClickListener(new View.OnClickListener() { // 잠자기 버튼 클릭시 타이머 시작
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     public void setInfoTextview() {
@@ -54,8 +67,4 @@ public class SubActivity extends AppCompatActivity {
         setInfoTextview();
     }
 
-    public void gameStart(View v) {
-        Tama my = new Tama("hi");
-        System.out.printf("%s", my.name);
-    }
 }

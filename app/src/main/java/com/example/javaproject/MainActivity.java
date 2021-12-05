@@ -24,7 +24,7 @@ class Tama implements Serializable {
     public Tama(String name){ // init
         this.name = name;
         this.level = 1;
-        this.energy = 15;
+        this.energy = 10;
     }
 
     public int getLevel() {
@@ -60,7 +60,7 @@ class Tama implements Serializable {
     }
 
     public void play() {
-        if(this.energy < 15) {
+        if(this.energy < 10) {
             energyUp(-3);
         } else {
             energyUp(2);
@@ -87,15 +87,10 @@ public class MainActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() { // 시작 버튼 화면전환
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SubActivity.class);
-//                 characterName.setText(scanName.getText());
-
+                 Intent intent = new Intent(getApplicationContext(), SubActivity.class);
                  intent.putExtra("myTama", myCharacter);
 
                  startActivity(intent);
-
-//                String tName = new String(scanName.getText());
-//                Tama myChar = new Tama();
             }
         });
 
@@ -113,57 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     Scanner scan = new Scanner(System.in);
-
-//            // 레이아웃 생성
-//        LinearLayout linearLayout = new LinearLayout(this);
-//        linearLayout .setOrientation(LinearLayout.VERTICAL);
-//
-//        // 레이아웃 파라미터 생성
-//        LinearLayout.LayoutParams linearLayoutParams =
-//                new LinearLayout.LayoutParams(
-//                        LinearLayout.LayoutParams.WRAP_CONTENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT
-//                );
-//
-//        // 텍스트뷰를 생성한 후 파라미터 설정
-//        TextView textView = new TextView(this);
-//        textView.setText("Text View");
-//        textView.setLayoutParams(linearLayoutParams);
-//
-//        // 생성한 TextView 를 linearLayout 에 추가
-//        linearLayout .addView(textView);
-//
-//        // 화면에 표시되도록 setContentView 실
-//        setContentView(linearLayout);
-
-//    @Override
-//
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        // 레이아웃 생성
-//        LinearLayout linearLayout = new LinearLayout(this);
-//        linearLayout .setOrientation(LinearLayout.VERTICAL);
-//
-//        // 레이아웃 파라미터 생성
-//        LinearLayout.LayoutParams linearLayoutParams =
-//                new LinearLayout.LayoutParams(
-//                        LinearLayout.LayoutParams.WRAP_CONTENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT
-//                );
-//
-//        // 텍스트뷰를 생성한 후 파라미터 설정
-//        TextView textView = new TextView(this);
-//        textView.setText("Text View");
-//        textView.setLayoutParams(linearLayoutParams);
-//
-//        // 생성한 TextView 를 linearLayout 에 추가
-//        linearLayout .addView(textView);
-//
-//        // 화면에 표시되도록 setContentView 실
-//        setContentView(linearLayout);
-//    }
-
 
 }
 

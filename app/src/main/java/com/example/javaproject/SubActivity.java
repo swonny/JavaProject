@@ -1,5 +1,6 @@
 package com.example.javaproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,7 +16,13 @@ public class SubActivity extends AppCompatActivity {
         setContentView(R.layout.first_main);
 
         TextView characterName = (TextView) findViewById(R.id.characterName);
-        //characterName.setText(myCharacter.name);
+
+        Intent intent = getIntent();
+
+        Tama myCharacter = (Tama) intent.getSerializableExtra("myTama");
+
+        characterName.setText("이름 : "+ myCharacter.name + "\n레벨 : " + myCharacter.getLevel() + "\n에너지 : "+ myCharacter.getEnergy());
+
     }
 
     public void eat(View v) {

@@ -1,6 +1,8 @@
 package com.example.javaproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.Serializable;
 import java.util.*;
 
 import android.content.Intent;
@@ -13,7 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-class Tama {
+class Tama implements Serializable {
+    private static final long serialVersionUID = 1L;
     final String name;
     private int level;
     private int energy;
@@ -22,6 +25,14 @@ class Tama {
         this.name = name;
         this.level = 1;
         this.energy = 15;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
+    public int getEnergy() {
+        return this.energy;
     }
 
     public void eat() {
@@ -39,6 +50,8 @@ class Tama {
 
 public class MainActivity extends AppCompatActivity {
 
+    Tama myCharacter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +64,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SubActivity.class);
-                startActivity(intent);
-                 characterName.setText(scanName.getText());
+//                 characterName.setText(scanName.getText());
+
+                 intent.putExtra("myTama", myCharacter);
+
+                 startActivity(intent);
 
 //                String tName = new String(scanName.getText());
 //                Tama myChar = new Tama();
@@ -65,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String tName = new String(String.valueOf(scanName.getText()));
                 Toast.makeText(getApplicationContext(), tName+" 생성!", Toast.LENGTH_SHORT).show();
-                Tama myCharacter = new Tama(tName);
+                myCharacter = new Tama(tName);
 
                 System.out.println(myCharacter.name);
             }

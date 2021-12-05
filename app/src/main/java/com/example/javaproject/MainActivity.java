@@ -35,12 +35,36 @@ class Tama implements Serializable {
         return this.energy;
     }
 
+    public void levelUp() {
+        if(this.level < 5) {
+            this.level += 1;
+        } else if (this.level == 5) {
+            System.out.printf("game end");
+        }
+    }
+
+    public void energyUp(int energy) {
+        if(getEnergy() + energy < 0) {
+            System.out.printf("game end");
+        }
+        if(this.energy + energy < 30) {
+            this.energy += energy;
+        } else {
+            this.energy = 0;
+            levelUp();
+        }
+    }
+
     public void eat() {
-        energy += 2;
+        energyUp(2);
     }
 
     public void play() {
-
+        if(this.energy < 15) {
+            energyUp(-3);
+        } else {
+            energyUp(2);
+        }
     }
 
     public void sleep() {

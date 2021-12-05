@@ -67,4 +67,11 @@
     - 캐릭터 정상적으로 생성 구현 완료!
     🔴 서로 다른 자바 클래스에서 객체를 공유해야하는데, 방법을 찾는 중!
 
+21.12.05 (일)
+- 객체 전달 구현 (serializable 사용)
+    - 객체를 전달할 Activity에서 intent.putExtra("key", value)의 형태로 객체 전달 가능
+        - key : 객체를 전달할 때 key로 객체를 찾을 수 있다.
+        - value : 전달할 객체
+    - 객체를 받는 SubActivity에서 intent.getSerializableExtra("key")의 형태로 객체 전달 받음
+
 

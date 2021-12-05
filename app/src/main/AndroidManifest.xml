@@ -20,6 +20,7 @@
         </activity>
 
         <activity android:name=".SubActivity"/>
+        <activity android:name=".EndActivity"/>
     </application>
 
 </manifest>

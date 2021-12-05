@@ -73,5 +73,9 @@
         - key : 객체를 전달할 때 key로 객체를 찾을 수 있다.
         - value : 전달할 객체
     - 객체를 받는 SubActivity에서 intent.getSerializableExtra("key")의 형태로 객체 전달 받음
+- eat, play 버튼 기능 구현
+    - eat 버튼 클릭시 energy+2
+    - play 버튼 클릭시 energy+3
+    - energy > 30 이라면 level+1
 
 

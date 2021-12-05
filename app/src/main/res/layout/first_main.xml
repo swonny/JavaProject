@@ -3,22 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingTop="200px"
         tools:context=".MainActivity"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="58dp">
+        tools:layout_editor_absoluteY="210dp">
 
         <TextView
             android:id="@+id/characterName"
-            android:layout_width="187dp"
-            android:layout_height="61dp"
-            android:layout_marginBottom="592dp"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:padding="20px"
             android:text="이름      : 다마\n레벨      : 5 level\n에너지  : 20"
             android:textColor="@color/black"
             android:textStyle="bold" />
@@ -27,6 +28,7 @@
             android:id="@+id/sleepTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="20px"
             android:text="Timer" />
 
     </LinearLayout>
@@ -79,14 +81,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="744dp"
         android:layout_weight="1"
+        android:src="@drawable/usual"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

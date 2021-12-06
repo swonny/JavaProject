@@ -116,10 +116,12 @@ public class SubActivity extends AppCompatActivity {
         myCharacter.play();
         setInfoTextview();
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageView); // 이미지뷰
+        ImageView imageView = (ImageView) findViewById(R.id.imageView); // 배경 변
         imageView.setImageResource(R.drawable.background);
+        ImageView playImageView = (ImageView) findViewById(R.id.playImage);
+        playImageView.setVisibility(playImageView.VISIBLE);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);
-        imageView.startAnimation(animation);
+        playImageView.startAnimation(animation);
     }
 
 }

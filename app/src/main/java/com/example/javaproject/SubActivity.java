@@ -37,7 +37,7 @@ public class SubActivity extends AppCompatActivity {
 
         characterName.setText("이름      : "+ myCharacter.name + "\n레벨      : " + myCharacter.getLevel() + "\n에너지  : "+ myCharacter.getEnergy());
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageView); // 이미지뷰
+        ImageView imageView = (ImageView) findViewById(R.id.imageView); // 그리드판 이미지뷰 불러오기
         imageView.setImageResource(R.drawable.usual);
 
         TextView sleepTimerView = (TextView) findViewById(R.id.sleepTimer); // 자는 시간 타이머 뷰
@@ -47,9 +47,9 @@ public class SubActivity extends AppCompatActivity {
             public void onClick(View view) {
                 CountDownTimer countDownTimer = new CountDownTimer(20000,1000) {
                     @Override
-                    public void onTick(long millisUntilFinished) {
+                    public void onTick(long millisUntilFinished) { // 3초에 한번씩 이미지뷰 바꿔 연속적으로 보이도록 설정
                         int num = (int) (millisUntilFinished / 1000);
-                        sleepTimerView.setText(Integer.toString(num + 1) + "초 뒤에 일어날게요!😴");
+                        sleepTimerView.setText(Integer.toString(num + 1) + "초 뒤에 일어날게요!😴"); // 타이머 설정
                         if((num+1) <= 1) {
                             sleepTimerView.setText("잠에서 깨어났어요!");
                             imageView.setImageResource(R.drawable.usual);
@@ -79,7 +79,7 @@ public class SubActivity extends AppCompatActivity {
             public void onClick(View view) {
                 CountDownTimer countDownTimer = new CountDownTimer(5000,1000) {
                     @Override
-                    public void onTick(long millisUntilFinished) {
+                    public void onTick(long millisUntilFinished) { // 1초마다 먹는 이미지 번갈아가면서 바꾸기
                         int num = (int) (millisUntilFinished / 1000);
                         if((num+1)%2 == 0) {
                             imageView.setImageResource(R.drawable.eat);
@@ -98,6 +98,39 @@ public class SubActivity extends AppCompatActivity {
                 }.start();
             }
         });
+
+       Button playButton = (Button) findViewById(R.id.playButton);
+       playButton.setOnClickListener(new View.OnClickListener() { // play 버튼 클릭 이벤트리스너 생성
+           @Override
+           public void onClick(View view) {
+               Toast.makeText(getApplicationContext(), "뭐하고 놀까?", Toast.LENGTH_SHORT).show(); // 토스트 띄우기
+               imageView.setImageResource(R.drawable.background);
+               ImageView playImageView = (ImageView) findViewById(R.id.playImage); // play 이미지뷰 불러오기
+               playImageView.setVisibility(playImageView.VISIBLE); // play 이미지뷰 GONE -> VISIBLE로
+               Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move); // 애니메이션 추가
+               playImageView.startAnimation(animation);
+
+               CountDownTimer countDownTimer = new CountDownTimer(5000,1000) { // 5초 동안 애니메이션 실행
+                   @Override
+                   public void onTick(long millisUntilFinished) {
+                   }
+
+                   @Override
+                   public void onFinish() {
+                       myCharacter.play(); // play -> energy + 2
+
+                       if(myCharacter.getEnergy() <= 0) {
+                           Intent intent = new Intent(getApplicationContext(), EndActivity.class);
+                           startActivity(intent);
+                       }
+                       setInfoTextview(); // 에너지, 레벨 정보 업데이트
+                       playImageView.getAnimation().cancel(); // 애니메이션 종료
+                       playImageView.setVisibility(playImageView.GONE); // play 이미지 없애기
+                       imageView.setImageResource(R.drawable.usual); // 이미지 돌려놓기
+                   }
+               }.start();
+           }
+       });
     }
 
     public void setInfoTextview() {
@@ -113,15 +146,15 @@ public class SubActivity extends AppCompatActivity {
 
     public void play(View v) {
         Toast.makeText(getApplicationContext(), "뭐하고 놀까?", Toast.LENGTH_SHORT).show();
-        myCharacter.play();
-        setInfoTextview();
-
-        ImageView imageView = (ImageView) findViewById(R.id.imageView); // 배경 변
-        imageView.setImageResource(R.drawable.background);
-        ImageView playImageView = (ImageView) findViewById(R.id.playImage);
-        playImageView.setVisibility(playImageView.VISIBLE);
-        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);
-        playImageView.startAnimation(animation);
+//        myCharacter.play();
+//        setInfoTextview();
+//
+//        ImageView imageView = (ImageView) findViewById(R.id.imageView); // 배경 변
+//        imageView.setImageResource(R.drawable.background);
+//        ImageView playImageView = (ImageView) findViewById(R.id.playImage);
+//        playImageView.setVisibility(playImageView.VISIBLE);
+//        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);
+//        playImageView.startAnimation(animation);
     }
 
 }

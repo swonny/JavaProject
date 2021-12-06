@@ -5,34 +5,34 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="게임이 종료되었습니다ㅠㅠ"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144" />
 
-    <FrameLayout
-        android:layout_width="409dp"
-        android:layout_height="400dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="122dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/background" />
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="100px"
+            android:text="GAME OVER" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
+            android:layout_height="404dp"
+            android:layout_gravity="center|center_vertical"
+            app:srcCompat="@drawable/gameover" />
+
+        <Button
+            android:id="@+id/restartButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/play"
-            tools:visibility="gone" />
-    </FrameLayout>
+            android:text="RESTART" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

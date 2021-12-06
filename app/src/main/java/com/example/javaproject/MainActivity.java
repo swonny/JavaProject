@@ -15,16 +15,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-class Tama implements Serializable {
-    private static final long serialVersionUID = 1L;
-    final String name;
-    private int level;
-    private int energy;
+class Tama implements Serializable { // 캐릭터 클래스
+    private static final long serialVersionUID = 1L; // SubActivity와 공유하기 위한 설정
+    final String name; // 캐릭터 이름
+    private int level; // 캐릭터 레벨
+    private int energy; // 캐릭터 에너지
 
-    public Tama(String name){ // init
-        this.name = name;
-        this.level = 1;
-        this.energy = 10;
+    public Tama(String name){ // 초기설정
+        this.name = name; // 이름
+        this.level = 1; // 기본 레벨
+        this.energy = 8; // 기본 에너지
     }
 
     public int getLevel() {
@@ -47,10 +47,10 @@ class Tama implements Serializable {
         if(getEnergy() + energy < 0) {
             System.out.printf("game over");
         }
-        if(this.energy + energy < 30) {
+        if(this.energy + energy < 20) {
             this.energy += energy;
         } else {
-            this.energy = 0;
+            this.energy = 8;
             levelUp();
         }
     }
@@ -107,7 +107,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    Scanner scan = new Scanner(System.in);
-
 }
 

@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="407dp"
+        android:layout_height="605dp"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="126dp">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="359dp"
+            android:layout_height="84dp"
+            android:layout_marginBottom="100px"
+            app:srcCompat="@drawable/mainboard2" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -20,14 +30,20 @@
                 android:id="@+id/scanName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:paddingRight="20px"
                 android:hint="다마고치 이름을 설정해주세요!" />
 
             <Button
                 android:id="@+id/sendName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#009688"
+                android:onClick="sendName"
                 android:text="저장!"
-                android:onClick="sendName"/>
+                app:rippleColor="#009688"
+                app:strokeColor="#009688"
+                app:strokeWidth="5px" />
 
         </LinearLayout>
 
@@ -36,6 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:backgroundTint="#009688"
+            android:backgroundTintMode="add"
             android:onClick="gameStart"
             android:text="Start now!" />
 

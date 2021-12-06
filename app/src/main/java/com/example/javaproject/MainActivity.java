@@ -61,7 +61,7 @@ class Tama implements Serializable { // 캐릭터 클래스
 
     public void play() {
         if(this.energy < 10) {
-            energyUp(-3);
+            energyUp(-8);
         } else {
             energyUp(2);
         }

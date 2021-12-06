@@ -20,12 +20,27 @@
             android:textSize="100px"
             android:text="GAME OVER" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="404dp"
-            android:layout_gravity="center|center_vertical"
-            app:srcCompat="@drawable/gameover" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="404dp"
+                android:layout_gravity="center|center_vertical"
+                app:srcCompat="@drawable/gameover" />
+
+            <ImageView
+                android:id="@+id/deadImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="62dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="60dp"
+                android:fillAfter="true"
+                app:srcCompat="@drawable/deadtama" />
+
+        </FrameLayout>
 
         <Button
             android:id="@+id/restartButton"

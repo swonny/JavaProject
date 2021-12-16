@@ -89,5 +89,22 @@
 - play 애니메이션 추가, 이미지 수정 완료
 - 종료화면 구현, restart 버튼 구현
 
+21.12.16 (목)
+< 기능 구현 완성 후 수정 보완 >
+1. 버튼 중복 클릭 막기
+    - SubActivity.java
+        - 버튼이 클릭되고 기능이 실행되는 시간 동안 다른 버튼 막기
+            - controlButton함수 생성 -> 인자로 버튼과 false // true 값을 받아 버튼을 활성화하거나 비활성화한다.
+            - 타이머가 0이 되기 전까지 button.setEnabled(false) // 버튼 클릭 막기
+            - 타이머가 0이 된 이후 button.setEnabled(true) // 돌려놓기
+2. first_main.xml 위치 수정
+    - 기존 xml위치 좌우 간격 조정
+3. game rules 게시판 추가
+    - toggle button을 이용
+        - 버튼 클릭 전 (button.isChecked == false)인 경우 : 캐릭터 생성 화면만 VISIBLE설정
+        - 만약 클릭시 버튼의 상태가 checked라면  : 게임룰 게시 화면만 VISIBLE설정판
+4. energy up 될때마다 토스트 메시지 띄우는 함수 추가
+5. level 1 -> level 2 로 업그레이드된다면 귀가 추가!
+
 
 

@@ -11,8 +11,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 
 class Tama implements Serializable { // 캐릭터 클래스
@@ -52,6 +57,7 @@ class Tama implements Serializable { // 캐릭터 클래스
         } else {
             this.energy = 8;
             levelUp();
+
         }
     }
 
@@ -63,7 +69,7 @@ class Tama implements Serializable { // 캐릭터 클래스
         if(this.energy < 10) {
             energyUp(-8);
         } else {
-            energyUp(2);
+            energyUp(5);
         }
     }
 
@@ -80,6 +86,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ToggleButton infoButton = (ToggleButton) findViewById(R.id.infoButton);
+        ImageView gameRulesImage = (ImageView) findViewById(R.id.rule1);
+        TextView gameRulesText = (TextView) findViewById(R.id.rule2);
+        LinearLayout mainall = (LinearLayout) findViewById(R.id.mainall);
+
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean on = ((ToggleButton) view).isChecked();
+
+                if(on) {
+                    mainall.setVisibility(mainall.INVISIBLE);
+                    gameRulesImage.setVisibility(gameRulesImage.VISIBLE);
+                    gameRulesText.setVisibility(gameRulesText.VISIBLE);
+                } else {
+                    mainall.setVisibility(mainall.VISIBLE);
+                    gameRulesImage.setVisibility(gameRulesImage.INVISIBLE);
+                    gameRulesText.setVisibility(gameRulesText.INVISIBLE);
+                }
+            }
+        });
 
         Button startButton = (Button) findViewById(R.id.startBtn); // 화면전환 이벤트
         TextView characterName = (TextView) findViewById(R.id.characterName);

@@ -5,58 +5,101 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="407dp"
-        android:layout_height="605dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:context=".MainActivity"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="126dp">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ToggleButton
+            android:id="@+id/infoButton"
+            android:layout_width="32dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="160dp"
+            android:backgroundTint="#FB8C00"
+            android:onClick="onToggleClicked"
+            android:textColor="@android:color/white"
+            android:textOff="!"
+            android:textOn="X" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="359dp"
-            android:layout_height="84dp"
-            android:layout_marginBottom="100px"
-            app:srcCompat="@drawable/mainboard2" />
+            android:id="@+id/rule1"
+            android:layout_width="305dp"
+            android:layout_height="606dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="00px"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/gamerules2"
+            android:visibility="invisible"/>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/rule2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="500px"
+            android:text="***게임 기본 규칙***\n\n1. energy가 0이 되면 GAME OVER!\n2. energy가 20이 되면 level up!\n3. 한번 한 가지 행동만 할 수 있어요.\n4. 레벨업이 되면 기본 에너지는 8이 돼요!\n\n***키우기 규칙***\n\n잠자기     : energy +5\n밥먹기     : energy +2\n놀아주기 : energy가 10보다 작다면 -8\n                  energy가 10보다 크다면 +5"
+            android:textColor="@color/teal_700"
+            android:visibility="invisible" />
 
-            <EditText
-                android:id="@+id/scanName"
+        <LinearLayout
+            android:id="@+id/mainall"
+            android:layout_width="410dp"
+            android:layout_height="608dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:context=".MainActivity"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="126dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="359dp"
+                android:layout_height="84dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="30px"
+                android:layout_marginBottom="100px"
+                app:srcCompat="@drawable/mainboard" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35px"
-                android:paddingRight="20px"
-                android:hint="다마고치 이름을 설정해주세요!" />
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/scanName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="다마고치 이름을 설정해주세요!"
+                    android:paddingRight="25px"
+                    android:textSize="35px" />
+
+                <Button
+                    android:id="@+id/sendName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#009688"
+                    android:onClick="sendName"
+                    android:text="저장!"
+                    app:rippleColor="#009688"
+                    app:strokeColor="#009688"
+                    app:strokeWidth="5px" />
+
+            </LinearLayout>
 
             <Button
-                android:id="@+id/sendName"
+                android:id="@+id/startBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0"
                 android:backgroundTint="#009688"
-                android:onClick="sendName"
-                android:text="저장!"
-                app:rippleColor="#009688"
-                app:strokeColor="#009688"
-                app:strokeWidth="5px" />
+                android:backgroundTintMode="add"
+                android:onClick="gameStart"
+                android:text="Start now!" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/startBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:backgroundTint="#009688"
-            android:backgroundTintMode="add"
-            android:onClick="gameStart"
-            android:text="Start now!" />
+    </FrameLayout>
 
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

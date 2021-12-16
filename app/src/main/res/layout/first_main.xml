@@ -10,6 +10,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/tamaName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tamaname"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80px"
+            android:textColor="@color/black"
+            android:textSize="50px"
+            android:textStyle="bold"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,19 +37,19 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
 
                     app:srcCompat="@drawable/board" />
 
                 <TextView
                     android:id="@+id/characterName"
-                    android:layout_width="164dp"
+                    android:layout_width="134dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:padding="30px"
-                    android:layout_marginLeft="20px"
-                    android:text="이름      : 다마\n레벨      : 5 level\n에너지  : 20"
-                    android:textColor="@color/black"
+                    android:text="레벨      : 5 level\n에너지  : 20"
+                    android:textColor="#0B8073"
                     android:textStyle="bold" />
 
                 <TextView
@@ -46,17 +57,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:paddingLeft="20px"
-                    android:text="" />
+                    android:paddingLeft="30px"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
             </FrameLayout>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="428dp"
-                android:layout_height="420dp"
-                android:layout_weight="1"
-                android:src="@drawable/usual" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="428dp"
+                    android:layout_height="420dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/usual" />
+
+                <ImageView
+                    android:id="@+id/level2"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="156dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/level2"
+                    android:visibility="invisible"/>
+
+
+            </FrameLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,10 +141,20 @@
             android:id="@+id/playImage"
             android:layout_width="128dp"
             android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="120px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="280dp"
             android:visibility="invisible"
             app:srcCompat="@drawable/play"
+            tools:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/playImage2"
+            android:layout_width="128dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="280dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/level2play"
             tools:visibility="invisible" />
     </FrameLayout>
 

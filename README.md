@@ -1,7 +1,8 @@
 # 자바와 객체지향 프로그래밍 프로젝트 2021-2학기
 
 21.11.21 (일)
-- 앱 실행, 버튼 클릭 
+- 앱 실행, 버튼 클릭
+- figma 사용하여 다마고치 이미지 직접 만들기
 
 21.11.26 (금)
 - 다마고치 클래스 생성
@@ -37,13 +38,11 @@
     - MainActivity
         - startButton 이벤트리스너 생성 : setOnClickListener 람다함수
     - SubActivity 파일 생성
-        🔴 코드 이해 필요
-        - startButton 클릭시 이동 화면 관리 (코드 이해 필요)
+        - startButton 클릭시 이동 화면 관리
         - 출처 : https://deumdroid.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%B2%84%ED%8A%BC-%ED%81%B4%EB%A6%AD-%EC%8B%9C-%ED%99%94%EB%A9%B4-%EC%A0%84%ED%99%98%ED%95%98%EA%B8%B0-Intent
     - first_main.xml 파일 생성
         -
     - Manifest.xml
-        🔴 코드 이해 필요
         - Activity 추가 (코드 이해 필요)
 
 

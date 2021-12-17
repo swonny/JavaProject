@@ -116,14 +116,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                  Intent intent = new Intent(getApplicationContext(), SubActivity.class);
-                 intent.putExtra("myTama", myCharacter);
+                 intent.putExtra("myTama", myCharacter); // myTama라는 이름으로 생성된 객체 전달
 
                  startActivity(intent);
             }
         });
 
         Button sendNameButton = (Button) findViewById(R.id.sendName);
-        sendNameButton.setOnClickListener(new View.OnClickListener() {
+        sendNameButton.setOnClickListener(new View.OnClickListener() { // 객체 생성 토스트를 띄우면서 클래스 객체 생성
             @Override
             public void onClick(View view) {
                 String tName = new String(String.valueOf(scanName.getText()));

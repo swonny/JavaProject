@@ -24,8 +24,8 @@ public class SubActivity extends AppCompatActivity {
     Tama myCharacter;
     TextView characterName;
     TextView tamaName;
-    Timer mTimer = new Timer();
-    TimerTask mTimerTask;
+//    Timer mTimer = new Timer();
+//    TimerTask mTimerTask;
 
     public void controlButton(Button eatButton, Button playButton, Button sleepButton, boolean b) { // 버튼 활성화 또는 비활성화
         eatButton.setEnabled(b); // 밥먹기 버튼
@@ -35,7 +35,6 @@ public class SubActivity extends AppCompatActivity {
 
     public void setToast(String time) {
         Toast toast = Toast.makeText(getApplicationContext(), "energy가 "+time+" 되었습니다!", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP|Gravity.LEFT, 200, 200);
         toast.show();
     }
 
@@ -44,7 +43,7 @@ public class SubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_main);
 
-        Intent intent = getIntent();
+        Intent intent = getIntent(); // 화면전화 전달 받기
 
         characterName = (TextView) findViewById(R.id.characterName);
         tamaName = (TextView) findViewById(R.id.tamaName);
@@ -88,9 +87,9 @@ public class SubActivity extends AppCompatActivity {
 
                     @Override
                     public void onFinish() {
-                        myCharacter.sleep();
+                        myCharacter.sleep(); // 정보 업데이트
                         characterName.setVisibility(characterName.VISIBLE);
-                        setInfoTextview();
+                        setInfoTextview(); // 상태게시판 업데이트
                         sleepTimerView.setText("");
                         setToast("+5"); // toast 메시지 띄우기
                         controlButton(eatButton, playButton, sleepButton, true); // 버튼 활성화
@@ -139,7 +138,7 @@ public class SubActivity extends AppCompatActivity {
            public void onClick(View view) {
                imageView.setImageResource(R.drawable.background);
                ImageView playImageView;
-               if(myCharacter.getLevel()>= 2) {
+               if(myCharacter.getLevel()>= 2) { // level 2 이상
                    playImageView = (ImageView) findViewById(R.id.playImage2); // play 이미지뷰 불러오기
                    level2image.setVisibility(View.INVISIBLE);
                    playImageView.setVisibility(playImageView.VISIBLE); // play 이미지뷰 GONE -> VISIBLE로
@@ -186,25 +185,5 @@ public class SubActivity extends AppCompatActivity {
     public void setInfoTextview() {
         characterName.setText("레벨      : " + myCharacter.getLevel() + "\n에너지  : "+ myCharacter.getEnergy());
     }
-
-//    public void eat(View v) {
-//        Toast eatToast = Toast.makeText(getApplicationContext(), "점심시간!", Toast.LENGTH_SHORT);
-//        eatToast.show();
-//        myCharacter.eat();
-//        setInfoTextview();
-//    }
-
-//    public void play(View v) {
-//        Toast.makeText(getApplicationContext(), "뭐하고 놀까?", Toast.LENGTH_SHORT).show();
-//        myCharacter.play();
-//        setInfoTextview();
-//
-//        ImageView imageView = (ImageView) findViewById(R.id.imageView); // 배경 변
-//        imageView.setImageResource(R.drawable.background);
-//        ImageView playImageView = (ImageView) findViewById(R.id.playImage);
-//        playImageView.setVisibility(playImageView.VISIBLE);
-//        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);
-//        playImageView.startAnimation(animation);
-//    }
 
 }
